@@ -1,0 +1,35 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'maven'
+
+group = 'org.somethingorother'
+
+sourceCompatibility = 1.6
+
+dependencies {
+	compile 'io.netty:netty-buffer:4.0.0.CR1'
+
+	testCompile 'junit:junit:4.11'
+	testCompile 'org.easytesting:fest-assert-core:2.0M9'
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+	classifier = 'sources'
+	from sourceSets.main.allSource
+}
+
+artifacts {
+	archives(sourcesJar) {
+		type = 'jar'
+	}
+}
+
+assemble.dependsOn sourcesJar
+
+repositories {
+	mavenCentral()
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.5'
+}

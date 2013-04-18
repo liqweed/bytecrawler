@@ -1,6 +1,13 @@
 *.class
 
 # Package Files #
-*.jar
 *.war
 *.ear
+*.iml
+
+.idea/libraries/*
+.idea/uiDesigner.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/gradle.xml
+.idea/gradle_settings2_config.xml
